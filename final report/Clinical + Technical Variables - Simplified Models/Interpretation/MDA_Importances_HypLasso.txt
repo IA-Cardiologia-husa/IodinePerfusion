@@ -1,0 +1,7 @@
+Feature                        MDA_norm   MDA        Variation  z-score   
+Myocardium Volume (mL)         1.0000e+00 -5.3719e-02 3.8267e-02 -1.4038e+00
+X-Ray Current, mA              8.0973e-01 -4.3498e-02 3.6807e-02 -1.1818e+00
+BMI                            7.5770e-01 -4.0703e-02 3.0969e-02 -1.3143e+00
+Sex (0: Woman, 1: Man)         2.5829e-01 -1.3875e-02 1.9763e-02 -7.0206e-01
+Delay between tracker and acqu 2.1731e-01 -1.1674e-02 1.7656e-02 -6.6120e-01
+Acquisition Duration           3.1384e-02 -1.6859e-03 9.9218e-03 -1.6992e-01

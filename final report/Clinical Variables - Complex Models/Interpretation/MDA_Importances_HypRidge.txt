@@ -1,0 +1,16 @@
+Feature                        MDA_norm   MDA        Variation  z-score   
+Myocardium Volume (mL)         1.0000e+00 -3.5493e-02 2.8736e-02 -1.2351e+00
+Sex (0: Woman, 1: Man)         5.1521e-01 -1.8287e-02 1.7718e-02 -1.0321e+00
+Acquisition Type (0: Step-and- 2.5764e-01 -9.1446e-03 1.6404e-02 -5.5747e-01
+BMI                            1.0969e-01 -3.8931e-03 9.7708e-03 -3.9845e-01
+Age                            1.9661e-02 -6.9783e-04 7.2083e-03 -9.6809e-02
+Diabetes                       1.7348e-02 -6.1575e-04 4.3706e-03 -1.4088e-01
+Contrast Dose (mL)             1.6634e-02 -5.9041e-04 5.6361e-03 -1.0476e-01
+Phase (0: Diastole, 1:Systole) 8.2500e-03 -2.9282e-04 2.5779e-03 -1.1359e-01
+Hypertension                   6.8664e-03 -2.4371e-04 4.9479e-03 -4.9256e-02
+AF History                     3.2134e-03 -1.1406e-04 1.9443e-03 -5.8663e-02
+Obesity                        -2.9826e-03 1.0586e-04 4.0423e-03 2.6189e-02
+Blood Pool Iodine Density      -6.0334e-03 2.1414e-04 4.7524e-03 4.5061e-02
+Active Smoking                 -1.1547e-02 4.0986e-04 2.2656e-03 1.8091e-01
+Smoking History                -1.2915e-02 4.5841e-04 2.3476e-03 1.9527e-01
+Dyslipidaemia                  -1.8156e-02 6.4443e-04 3.1431e-03 2.0503e-01

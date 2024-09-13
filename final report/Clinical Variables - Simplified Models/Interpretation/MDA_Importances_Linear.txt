@@ -1,0 +1,5 @@
+Feature                        MDA_norm   MDA        Variation  z-score   
+Myocardium Volume (mL)         1.0000e+00 -7.4720e-02 4.7079e-02 -1.5871e+00
+Sex (0: Woman, 1: Man)         1.7125e-01 -1.2796e-02 1.7851e-02 -7.1679e-01
+Acquisition Type (0: Step-and- 1.3572e-01 -1.0141e-02 2.0758e-02 -4.8853e-01
+BMI                            1.2075e-01 -9.0221e-03 1.5022e-02 -6.0057e-01

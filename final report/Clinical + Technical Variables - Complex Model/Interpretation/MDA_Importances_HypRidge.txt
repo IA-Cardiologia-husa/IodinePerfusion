@@ -1,0 +1,22 @@
+Feature                        MDA_norm   MDA        Variation  z-score   
+Myocardium Volume (mL)         1.0000e+00 -4.1408e-02 3.1829e-02 -1.3009e+00
+X-Ray Current, mA              6.4542e-01 -2.6726e-02 2.9054e-02 -9.1988e-01
+Sex (0: Woman, 1: Man)         4.4868e-01 -1.8579e-02 1.9069e-02 -9.7430e-01
+BMI                            4.0608e-01 -1.6815e-02 1.9327e-02 -8.7005e-01
+Delay between tracker and acqu 2.6668e-01 -1.1043e-02 1.7183e-02 -6.4264e-01
+Acquisition Duration           8.3851e-02 -3.4721e-03 1.2379e-02 -2.8050e-01
+Radiation Exposure Time, ms    8.3162e-02 -3.4436e-03 1.0720e-02 -3.2122e-01
+Phase (0: Diastole, 1:Systole) 7.0319e-02 -2.9118e-03 7.1892e-03 -4.0502e-01
+Hypertension                   3.2957e-02 -1.3647e-03 7.2459e-03 -1.8834e-01
+Obesity                        3.1261e-02 -1.2945e-03 6.4008e-03 -2.0223e-01
+Radiation Exposure, mA·s       2.1195e-02 -8.7764e-04 6.1511e-03 -1.4268e-01
+Age                            2.0190e-02 -8.3603e-04 7.1305e-03 -1.1725e-01
+CTDIvol                        1.7174e-02 -7.1116e-04 4.1566e-03 -1.7109e-01
+AF History                     1.3890e-02 -5.7516e-04 4.1535e-03 -1.3848e-01
+Acquisition Type (0: Step-and- 1.1404e-02 -4.7224e-04 6.2107e-03 -7.6036e-02
+Diabetes                       1.7088e-03 -7.0759e-05 5.0244e-03 -1.4083e-02
+Active Smoking                 -7.1809e-03 2.9735e-04 1.2843e-03 2.3152e-01
+Dyslipidaemia                  -1.1381e-02 4.7127e-04 4.8883e-03 9.6408e-02
+Contrast Dose (mL)             -1.4340e-02 5.9380e-04 2.6152e-03 2.2706e-01
+Smoking History                -1.5822e-02 6.5517e-04 2.2648e-03 2.8928e-01
+Blood Pool Iodine Density      -2.3251e-02 9.6278e-04 2.9034e-03 3.3161e-01
