@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import sklearn.metrics as sk_m
-import sksurv.metrics as su_m
 import matplotlib.pyplot as plt
 
 
@@ -201,148 +200,9 @@ class r2():
 		fig.savefig(name)
 		return
 
-class cindex_censored():
-	def __init__(self):
-		self.name = 'concordance_index_censored'
-		self.optimization_sign = 1
-		self.variance = None
-
-	def __call__(self, df, df_train=None):
-		cindex = su_m.concordance_index_censored(df.loc[df['True Label'].notnull(), 'True Label'].astype(bool),
-												df.loc[df['True Label'].notnull(), 'Time'],
-												df.loc[df['True Label'].notnull(), 'Prediction'])[0]
-		self.variance = 0
-		self.std_error = np.sqrt(self.variance)
-		return cindex
-
-	def plot(self, df, results, ax, score_name):
-
-		ax.barh(f'{score_name}', results["avg_concordance_index_censored"], color=self.cmap(self.color_index),
-			   label = f'{score_name}: C-index ={results["avg_concordance_index_censored"]:1.2f} ({results["concordance_index_censored_95ci_low"]:1.2f}-{results["concordance_index_censored_95ci_high"]:1.2f})')
-		self.color_index+=1
-
-	def figure(self, n, cmap = "tab10"):
-		fig, ax = plt.subplots(figsize=(10,10))
-
-
-		self.color_index = 0
-		self.cmap=plt.get_cmap(cmap)
-
-		return fig, ax
-
-	def save_figure(self, fig, ax, name):
-		ax.legend(loc="lower right", fontsize = 10)
-		ax.set_xlim([-0.05, 1.05])
-
-		fig.savefig(name)
-		return
-#
-# class cindex_ipcw():
-# 	def __init__(self):
-# 		self.name = 'concordance_index_ipcw'
-# 		self.optimization_sign = 1
-# 		self.variance = None
-#
-# 	def __call__(self, df, df_train):
-# 		cindex = su_m.concordance_index_ipcw(df.loc[df['True Label'].notnull(), 'True Label'],
-# 												df.loc[df['True Label'].notnull(), 'Time Label'],
-# 												df.loc[df['True Label'].notnull(), 'Prediction'])
-# 		self.variance = 0
-# 		self.std_error = np.sqrt(self.variance)
-# 		return cindex
-#
-# 	def plot(self, df, results, ax, score_name):
-#
-# 		ax.barh(f'{score_name}', results["avg_concordance_index_ipcw"], color=self.cmap(self.color_index),
-# 			   label = f'{score_name}: C-index ={results["avg_concordance_index_ipcw"]:1.2f} ({results["concordance_index_ipcw_95ci_low"]:1.2f}-{results["concordance_index_ipcw_95ci_high"]:1.2f})')
-# 		self.color_index+=1
-#
-# 	def figure(self, n, cmap = "tab10"):
-# 		fig, ax = plt.subplots(figsize=(10,10))
-#
-#
-# 		self.color_index = 0
-# 		self.cmap=plt.get_cmap(cmap)
-#
-# 		return fig, ax
-#
-# 	def save_figure(self, fig, ax, name):
-# 		ax.legend(loc="lower right", fontsize = 10)
-# 		ax.set_xlim([-0.05, 1.05])
-#
-# 		fig.savefig(name)
-# 		return
-#
-#
-class cumulative_auc():
-	def __init__(self):
-		self.name = 'cd auc'
-		self.optimization_sign = 1
-		self.variance = None
-
-	def __call__(self, df, df_train = None):
-		if df_train is None:
-			gt = df.loc[df['True Label'].notnull(),['True Label', 'Time']].to_records(index = False).astype([('Events',bool), ('Times', float)])
-			pp = df.loc[df['True Label'].notnull(), 'Prediction']
-			ti = np.sort(df.loc[df['True Label'].notnull(), 'Time'].unique())
-			min_time = df.loc[df['True Label'], 'Time'].min()
-			ti = ti[ti>min_time][:-1]
-			cd_auc = su_m.cumulative_dynamic_auc(gt, gt, pp, ti)[1]
-		else:
-			# All the data is used to compute the censoring survival function
-			total = pd.concat([df.loc[df['True Label'].notnull(),['True Label', 'Time']],
-							   df_train.loc[df_train['True Label'].notnull(),['True Label', 'Time']]]).to_records(index = False).astype([('Events',bool), ('Times', float)])
-			gt = df.loc[df['True Label'].notnull(),['True Label', 'Time']].to_records(index = False)
-			pp = df.loc[df['True Label'].notnull(), 'Prediction']
-			ti = np.sort(df.loc[df['True Label'].notnull(), 'Time'].unique())
-			min_time = df.loc[df['True Label'], 'Time'].min()
-			ti = ti[ti>min_time][:-1]
-			cd_auc = su_m.cumulative_dynamic_auc(total, gt, pp, ti)[1]
-
-		self.variance = 0
-		self.std_error = np.sqrt(self.variance)
-		return cd_auc
-
-	def plot(self, df, results, ax, score_name):
-
-		ev = df.loc[df['True Label'].notnull(), 'True Label']
-		pp = df.loc[df['True Label'].notnull(), 'Prediction']
-		fu = df.loc[df['True Label'].notnull(), 'Time']
-		ti = np.sort(fu.unique())
-		min_time = df.loc[df['True Label'], 'Time'].min()
-		ti = ti[ti>min_time][:-1]
-
-		auc_list = []
-		ti_list = []
-		for t in ti:
-			ev_t = ev & (fu < t)
-			pp_t = pp[ev_t | (fu >= t)]
-			ev_t = ev_t[ev_t | (fu >= t)]
-			ti_list.append(t)
-			auc_list.append(sk_m.roc_auc_score(ev_t,pp_t))
-
-		ax.plot(ti_list, auc_list, c=self.cmap(self.color_index), label = f'{score_name}: C/D AUC ={results["avg_cd auc"]:1.2f} ({results["cd auc_95ci_low"]:1.2f}-{results["cd auc_95ci_high"]:1.2f})')
-		self.color_index+=1
-
-	def figure(self, n, cmap = "tab10"):
-		fig, ax = plt.subplots(figsize=(12,6))
-
-		self.color_index = 0
-		self.cmap=plt.get_cmap(cmap)
-
-		return fig, ax
-
-	def save_figure(self, fig, ax, name):
-		ax.legend(loc="lower right", fontsize = 10)
-		ax.set_ylim([-0.05, 1.05])
-
-		fig.savefig(name)
-		return
 
 
 metrics_list = {'aucroc': aucroc,
 				'aucpr':aucpr,
 				'rmse':rmse,
-				'r2':r2,
-				'cindex':cindex_censored,
-				'cd auc':cumulative_auc}
+				'r2':r2}
