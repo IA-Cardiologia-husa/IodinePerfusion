@@ -1,0 +1,5 @@
+Sex (0: Woman, 1: Man) -0.11263150623451405
+BMI 0.008438516404718346
+Myocardium Volume (mL) -0.004813097551938549
+Acquisition Type (0: Step-and-shoot, 1: Helical) 0.16099891045484283
+Intercept 2.2418861038106486

@@ -1,0 +1,20 @@
+Mean Iodine Density for all patients: 1.9083232980927611
+Standard Deviation: 0.30924759163864357
+
+Segment 01: -0.0883, stdev:  0.129
+Segment 02:  0.102, stdev:  0.192
+Segment 03:  0.0887, stdev:  0.211
+Segment 04: -0.109, stdev:  0.159
+Segment 05: -0.111, stdev:  0.145
+Segment 06: -0.0261, stdev:  0.152
+Segment 07: -0.0762, stdev:  0.121
+Segment 08:  0.342, stdev:  0.19
+Segment 09:  0.17, stdev:  0.173
+Segment 10: -0.113, stdev:  0.171
+Segment 11: -0.103, stdev:  0.149
+Segment 12: -0.0257, stdev:  0.12
+Segment 13: -0.0324, stdev:  0.148
+Segment 14:  0.332, stdev:  0.219
+Segment 15: -0.108, stdev:  0.153
+Segment 16: -0.103, stdev:  0.129
+Segment 17: -0.387, stdev:  0.257
