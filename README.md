@@ -1,13 +1,16 @@
 # Iodine Perfusion model training
 
-This code provides the training and evaluation of the models for the research paper *SPECTRAL CT REFERENCE VALUES FOR MYOCARDIAL STATIC RESTING PERFUSION. EXPLORING SEX DIFFERENCES THROUGH MACHINE LEARNING*. To execute the code one needs to create a Python environment with the following libraries installed:
-- numpy
-- pandas
-- openpyxl
-- xlsxwriter
-- luigi
-- scikit-learn
-- xgboost
+This code provides the training and evaluation of the models for the research paper *SPECTRAL CT REFERENCE VALUES FOR MYOCARDIAL STATIC RESTING PERFUSION. EXPLORING SEX DIFFERENCES THROUGH MACHINE LEARNING*. To execute the code one needs to create a Python environment with the following libraries installed (version used in parentheses):
+- python
+- numpy (1.25.2)
+- pandas (2.1.1)
+- matplotlib (3.8.0)
+- openpyxl (3.1.2)
+- xlsxwriter (3.1.6)
+- luigi (3.4.0)
+- scikit-learn (1.3.1)
+- xgboost (2.0.0)
+- shap (0.42.1)
 
 The code can be run with the following command:
 
