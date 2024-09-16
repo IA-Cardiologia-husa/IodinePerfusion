@@ -5,6 +5,7 @@ This code provides the training and evaluation of the models for the research pa
 - numpy (1.25.2)
 - pandas (2.1.1)
 - matplotlib (3.8.0)
+- scipy (1.11.3)
 - openpyxl (3.1.2)
 - xlsxwriter (3.1.6)
 - luigi (3.4.0)
