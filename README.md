@@ -1,7 +1,7 @@
 # Iodine Perfusion model training
 
 This code provides the training and evaluation of the models for the research paper *SPECTRAL CT REFERENCE VALUES FOR MYOCARDIAL STATIC RESTING PERFUSION. EXPLORING SEX DIFFERENCES THROUGH MACHINE LEARNING*. To execute the code one needs to create a Python environment with the following libraries installed (version used in parentheses):
-- python
+- python (3.11.5)
 - numpy (1.25.2)
 - pandas (2.1.1)
 - matplotlib (3.8.0)
